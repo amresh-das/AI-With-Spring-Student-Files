@@ -1,4 +1,4 @@
-  # TODO-04: 
+  # TDODO-04:
   # Set `spring.application.name` to "Lab06 OpenAI Functions" or something similar.
   # Set `spring.main.web-application-type` to none to run as a non-web application.  Spring AI applications can run as web applications, but these exercises avoid this distraction.
   # Set `spring.ai.retry.max-attempts` to 1 to fail fast to save time if you have errors.
@@ -10,4 +10,9 @@ spring:
   application.name: Lab06 Local Functions
   main.web-application-type: none     # Do not start a web server.
 
-
+  ai:
+    retry:
+      max-attempts: 1      # Maximum number of retry attempts.
+      on-client-errors: false   # Do not retry for 4xx errors.
+    openai:
+      chat.enabled: true

@@ -8,17 +8,19 @@ import org.springframework.stereotype.Service;
 
 import com.example.client.AIClient;
 
-//	TODO-11: Annotate this class as a Spring bean using the @Service annotation.
+//	TDODO-11: Annotate this class as a Spring bean using the @Service annotation.
 //  Set its name to "stockService" to align with the callback function from the earlier step.
 //  Use the @Description annotation to provide a helpful description for the OpenAI Client object.
 
+@Service("stockService")
+@Description("Service to get stock information")
 public class StockService implements Function<com.example.service.StockService.Request, com.example.service.StockService.Response> {
 
 	public static Double price = Math.round(Math.random()*800)/100.0;
 	public static Integer volume = (int) (Math.random() * 999 + 1);
 
 
-	//	TODO-12: Notice the pre-defined records for Request and Response.
+	//	TDODO-12: Notice the pre-defined records for Request and Response.
 	//  These structures will be understood by the OpenAI client software.
 	//  Notice the apply() method, this will be invoked by the OpenAI client
 	//	automatically when the response is returned from the server:
