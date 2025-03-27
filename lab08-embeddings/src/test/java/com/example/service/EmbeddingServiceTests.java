@@ -9,16 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-//  TODO-10: Define this test class as a Spring Boot test.
+//  TDODO-10: Define this test class as a Spring Boot test.
 //  Use the @ActiveProfiles annotation to activate the matching embedding model you plan to use.
 //      For Amazon Bedrock,     use "aws".
 //      For standard OpenAI,    use "openai".
 //      For Ollama,             use "ollama".
 
+@SpringBootTest
+@ActiveProfiles("internal")
+
 public class EmbeddingServiceTests {
 
     
-    //  TODO-11: Use the @Autowired annotation to inject an instance of our EmbeddingService.
+    //  TDODO-11: Use the @Autowired annotation to inject an instance of our EmbeddingService.
+    @Autowired private EmbeddingService svc;
 
 
     //  Sample product catalog:
@@ -33,16 +37,21 @@ public class EmbeddingServiceTests {
     String query = "I need high quality wireless headphones to block out noise on a plane";
 
 
-    //  TODO-12: Define a test method to call the findClosestMatch method of the service.
+    //  TDODO-12: Define a test method to call the findClosestMatch method of the service.
     //  Use the provided query and products variables as test inputs.
     //  Capture the result in a String variable.
     //  assertThat the result startsWith "Wireless Headphones".
     //  Print the result to the console:
-
+    @Test
+    public void testFindClosestMatch() {
+        int result = svc.findClosestMatch(query, products);
+        assertThat(products.get(result)).startsWith("Wireless Headphones:");
+        System.out.println(products.get(result));
+    }
 
 
     
-    //  TODO-13: Organize your imports and save your work.
+    //  TDODO-13: Organize your imports and save your work.
     //  Run this test.  It should pass.
     //  The product description for wireless headphones should be displayed.
 

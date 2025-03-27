@@ -9,7 +9,7 @@ spring:
     retry:
       max-attempts: 1      # Maximum number of retry attempts.
 
-# TODO-03: Adjust the settings below based on the chat model you plan to use.
+# TDODO-03: Adjust the settings below based on the chat model you plan to use.
 # If you plan to use Amazon Bedrock: 
 #   - Adjust the region setting if needed.
 #   - Adjust the model setting if needed.
@@ -34,28 +34,28 @@ spring:
           model: text-embedding-ada-002
 
 ---
-spring:
-  config.activate.on-profile: aws
-  
-  # Amazon Bedrock Cohere Settings:
-  ai:
-    bedrock:
-      aws.region: us-west-2 # Adjust as needed.   
-      cohere:
-        embedding:
-          enabled: true
-          model: cohere.embed-english-v3
-
----
-spring:
-  config.activate.on-profile: ollama
-
-  # Ollama Settings:
-  ai:
-    ollama:
-      base-url: http://localhost:11434  # Default base URL when you run Ollama from Docker
-      embedding:
-        enabled: true
+#spring:
+#  config.activate.on-profile: aws
+#
+#  # Amazon Bedrock Cohere Settings:
+#  ai:
+#    bedrock:
+#      aws.region: us-west-2 # Adjust as needed.
+#      cohere:
+#        embedding:
+#          enabled: true
+#          model: cohere.embed-english-v3
+#
+#---
+#spring:
+#  config.activate.on-profile: ollama
+#
+#  # Ollama Settings:
+#  ai:
+#    ollama:
+#      base-url: http://localhost:11434  # Default base URL when you run Ollama from Docker
+#      embedding:
+#        enabled: true
 
 ---
 spring:
