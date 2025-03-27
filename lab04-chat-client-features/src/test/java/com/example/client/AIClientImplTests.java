@@ -2,24 +2,25 @@ package com.example.client;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.example.Application;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-//  TODO-02: Adjust the @ActiveProfile defined below to match the chat model you plan to use.
+//  TDODO-02: Adjust the @ActiveProfile defined below to match the chat model you plan to use.
 //  For Amazon Bedrock models,  use "aws".
 //  For Azure-hosted OpenAI,    use "azure".
 //  For standard OpenAI,        use "openai".
 //  For Ollama,                 use "ollama".
-@SpringBootTest
-@ActiveProfiles("xxxxx")
+@SpringBootTest(classes = Application.class)
+@ActiveProfiles("openai")
 public class AIClientImplTests {
 
     @Autowired AIClient client;
 
-    //  TODO-03: Examine the test logic below.  It conducts two separate conversations.
+    //  TDODO-03: Examine the test logic below.  It conducts two separate conversations.
     //  One conversation discusses the Great Lakes.  The other discusses planets.
     //  Remove the @Disabled annotation from the test method.  Run the test.
     //  We expect the test to FAIL.  Do you understand why?
@@ -60,24 +61,22 @@ public class AIClientImplTests {
 
     }
 
-    //  TODO-10: Examine the test logic below.  It retrieves data about a US State (or any state).
+    //  TDODO-10: Examine the test logic below.  It retrieves data about a US State (or any state).
     //  Remove the @Disabled annotation.  Run the test.  It should pass. 
     //  Move on to the next step to add to the information retrieved about each state. 
 
     @Test
-    @Disabled
     public void testRetrieve() {
 
         StateData stateData = client.retrieve("Michigan");
         System.out.println("State data is: " + stateData );
         assertThat(stateData.stateName()).isEqualTo("Michigan");
         assertThat(stateData.capitalCity()).isEqualTo("Lansing");
+        assertThat(stateData.population()).isBetween(10000000, 12000000);
+        assertThat(stateData.stateMotto()).isEqualTo("Si Quaeris Peninsulam Amoenam Circumspice");
 
-        //  TODO-12: Add additional assertions to this method to verify that 
+        //  TDODO-12: Add additional assertions to this method to verify that
         //  the entity object is populated with the extra fields you established in the last step.
-        //  Run the test again.  It should pass. 
-
-        
-        
+        //  Run the test again.  It should pass.
     }
 }

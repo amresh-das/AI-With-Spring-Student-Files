@@ -1,6 +1,6 @@
 package com.example.client;
 
-//  TODO-11:  Add additional fields to the StateData record.
+//  TDODO-11:  Add additional fields to the StateData record.
 //  Add whatever fields you might like to know about a given state.
 //  Examples might include:  
 //  area in square miles, population, 
@@ -8,5 +8,7 @@ package com.example.client;
 
 public record StateData(
     String stateName, 
-    String capitalCity
+    String capitalCity,
+    int population,
+    String stateMotto
     ) {}

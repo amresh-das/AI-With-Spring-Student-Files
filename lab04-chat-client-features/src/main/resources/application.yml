@@ -8,7 +8,7 @@ spring:
 
     bedrock.converse.chat.enabled:  false # Disable all models by default.
     ollama.chat.enabled:            false # Disable all models by default.
-    openai.chat.enabled:            false # Disable all models by default.
+    openai.chat.enabled:            true # Disable all models by default.
     azure.openai.chat.enabled:      false # Disable all models by default.
 
     # TODO-01: Adjust the settings below based on the chat model you plan to use.
