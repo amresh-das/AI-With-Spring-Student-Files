@@ -74,7 +74,7 @@ spring:
 spring:
   config.activate.on-profile: redis-vector-store
 
-  # TODO-21 (OPTIONAL): Set properties for the Redis vector store.
+  # TDODO-21 (OPTIONAL): Set properties for the Redis vector store.
   # Note that these will only be used if the "redis-vector-store" profile is active.
   # Set spring.ai.vectorstore.redis.uri to redis://localhost:6379, unless your redis is running elsewhere.
   # Set spring.ai.vectorstore.redis.initializeSchema to true to create the necessary schema.
@@ -82,6 +82,7 @@ spring:
   ai:
     vectorstore:
       redis:
+        uri: redis://localhost:6379  # Default.
         index: default-index         # Default.
         prefix: "default:"           # Default.
 
