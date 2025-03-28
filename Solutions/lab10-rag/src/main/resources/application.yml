@@ -60,7 +60,7 @@ spring:
 
   ai:
     openai:
-      api-key: NEVER-PLACE-SECRET-KEY-IN-CONFIG-FILE
+      api-key: NEV0ER-PLACE-SECRET-KEY-IN-CONFIG-FILE
       chat:
         enabled: true
 

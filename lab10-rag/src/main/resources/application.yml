@@ -7,14 +7,14 @@ spring:
       max-attempts: 1      # Maximum number of retry attempts.
       on-client-errors: false   # If false, throw a NonTransientAiException, and do not attempt retry for 4xx client error codes.
 
-    openai.embedding.enabled:      false # Allow profile to enable this if needed.
+    openai.embedding.enabled:      true # Allow profile to enable this if needed.
     ollama.embedding.enabled:      false # Allow profile to enable this if needed.
     bedrock.converse.chat.enabled: false # Allow profile to enable this if needed.
-    openai.chat.enabled:           false # Allow profile to enable this if needed.
+    openai.chat.enabled:           true # Allow profile to enable this if needed.
     azure.openai.chat.enabled:     false # Allow profile to enable this if needed.
     ollama.chat.enabled:           false # Allow profile to enable this if needed.
 
-# TODO-03: Adjust the settings below based on the chat model you plan to use.
+# TDODO-03: Adjust the settings below based on the chat model you plan to use.
 # Use previous labs for guidance.
 #
 # If you plan to use Amazon Bedrock: 
@@ -44,14 +44,14 @@ spring:
 
 
 ---
-spring:
-  config.activate.on-profile: aws
-
-  ai:
-    bedrock:
-      converse:
-        chat:
-          enabled: true
+#spring:
+#  config.activate.on-profile: aws
+#
+#  ai:
+#    bedrock:
+#      converse:
+#        chat:
+#          enabled: true
   
 ---
 spring:
@@ -59,27 +59,28 @@ spring:
 
   ai:
     openai:
+      api-key: NEVER-PLACE-SECRET-KEY-IN-CONFIG-FILE
       chat:
         enabled: true
 
 ---
-spring:
-  config.activate.on-profile: azure
-
-  ai:
-    azure:
-      openai:
-        chat:
-          enabled: true
+#spring:
+#  config.activate.on-profile: azure
+#
+#  ai:
+#    azure:
+#      openai:
+#        chat:
+#          enabled: true
 
 ---
-spring:
-  config.activate.on-profile: ollama
-
-  ai:
-    ollama:
-      chat:
-        enabled: true
+#spring:
+#  config.activate.on-profile: ollama
+#
+#  ai:
+#    ollama:
+#      chat:
+#        enabled: true
 
 
 
